@@ -1,6 +1,7 @@
 // HTML elements
 const searchInput = document.querySelector('.search__input');
 const searchButton = document.querySelector('.search__button');
+let ui = new UI();
 
 // Event Listeners
 searchButton.addEventListener('click', (e) => {
@@ -16,6 +17,7 @@ searchButton.addEventListener('click', (e) => {
                 
             } else {
                 // Show Profile
+                ui.showProfile(data);
             }
         })
     } else {
