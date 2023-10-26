@@ -1,8 +1,7 @@
-// HTML elements
-const searchInput = document.querySelector('.search__input');
-const searchButton = document.querySelector('.search__button');
-let ui = new UI();
-
+    // HTML elements
+    const searchInput = document.querySelector('#searchUser');
+    const searchButton = document.querySelector('.search__button');
+    let ui = new UI();
 async function performSearch() {
     let userText = searchInput.value;
     if (userText !== '') {
@@ -35,13 +34,14 @@ async function performSearch() {
         ui.clearProfile();
     }
 }
-
 function searchOnEnter(event) {
     if (event.key === 'Enter') {
         performSearch(); // Trigger the search when Enter key is pressed
-        console.log(performSearch);
     }
 }
 
 // Event Listeners
 searchButton.addEventListener('click', performSearch);
+searchInput.addEventListener('keyup', searchOnEnter);
+
+
