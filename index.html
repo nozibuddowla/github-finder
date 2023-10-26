@@ -28,8 +28,12 @@
         <div class="search card card-body">
             <h1>Search GitHub Users</h1>
             <p class="lead">Enter a username to fetch a user profile and repos</p>
-            <input type="text" id="searchUser" class="form-control search__input" placeholder="GitHub Username...">
-            <button id="SearchBtn" class="btn btn-success search__button">Search</button>
+            <div class="input-group mb-3">
+                <input type="text" id="searchUser" class="form-control" placeholder="GitHub Username" aria-label="GitHub Username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" onclick="performSearch()">Search</button>
+                </div>
+            </div>
         </div>
         <br>
         <div id="profile">

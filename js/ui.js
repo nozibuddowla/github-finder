@@ -45,19 +45,17 @@ class UI {
                 <div class='col'>
                     <div class='card'>
                         <div class="card-body mb-2">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h5 class='card-title'>
-                                    <a href="${repo.html_url}" target="_blank">${repo.name}</a>
-                                    </h5>
-                                    
-                                </div>
-                                <div class="col-md-6">
-                                    <span class="badge round-pill text-bg-primary">Stars: ${repo.stargazers_count}</span>
-                                    <span class="badge round-pill text-bg-secondary">Watchers: ${repo.watchers_count}</span>
-                                    <span class="badge round-pill text-bg-success">Forks: ${repo.forks_count}</span>
-                                </div>
-                            </div>
+                            <h5 class='card-title'>
+                                <a href="${repo.html_url}" target="_blank">${repo.name}</a>
+                            </h5>
+                            <span class="badge round-pill text-bg-primary">Stars: ${repo.stargazers_count}</span>
+                            <span class="badge round-pill text-bg-secondary">Watchers: ${repo.watchers_count}</span>
+                            <span class="badge round-pill text-bg-success">Forks: ${repo.forks_count}</span>
+                            <ul class="list-group">
+                                <li class="list-group-item card-text">Description: ${repo.description}</li>
+                                <li class="list-group-item card-text">Language: ${repo.language}</li>
+                                <li class="list-group-item card-text">Last Update: ${String(repo.updated_at).substring(0, 10)}</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -82,6 +80,12 @@ class UI {
         const container = document.querySelector('.searchContainer');
         const search = document.querySelector('.search');
         container.insertBefore(div, search);
+
+        // Automatically clear the alert and input field after 3 seconds
+        setTimeout(() => {
+            this.clearAlert();
+            searchInput.value = '';
+        }, 3000); // Adjust the delay (in milliseconds) as needed
     }
 
     clearAlert() {
